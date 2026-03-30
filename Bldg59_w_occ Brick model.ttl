@@ -1,0 +1,1306 @@
+@prefix bldg: <http://example.org/building#> .
+@prefix brick1: <https://brickschema.org/schema/1.1/Brick#> .
+
+bldg:UTF_2-1 a brick1:VAV ;
+    brick1:feeds bldg:zone_016 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_2-10 a brick1:VAV ;
+    brick1:feeds bldg:zone_026 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_2-11 a brick1:VAV ;
+    brick1:feeds bldg:zone_027 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-12 a brick1:VAV ;
+    brick1:feeds bldg:zone_028 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-13B a brick1:VAV ;
+    brick1:feeds bldg:zone_030 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-13D a brick1:VAV ;
+    brick1:feeds bldg:zone_032 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-14 a brick1:VAV ;
+    brick1:feeds bldg:zone_033 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-15 a brick1:VAV ;
+    brick1:feeds bldg:zone_035 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-16 a brick1:VAV ;
+    brick1:feeds bldg:zone_036 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-17 a brick1:VAV ;
+    brick1:feeds bldg:zone_037 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_2-18 a brick1:VAV ;
+    brick1:feeds bldg:zone_038 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_2-19 a brick1:VAV ;
+    brick1:feeds bldg:zone_039 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_2-2 a brick1:VAV ;
+    brick1:feeds bldg:zone_017 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_2-20 a brick1:VAV ;
+    brick1:feeds bldg:zone_040 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_2-21 a brick1:VAV ;
+    brick1:feeds bldg:zone_041 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_2-22 a brick1:VAV ;
+    brick1:feeds bldg:zone_042 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_2-23 a brick1:VAV ;
+    brick1:feeds bldg:zone_043 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-24 a brick1:VAV ;
+    brick1:feeds bldg:zone_044 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_2-25 a brick1:VAV ;
+    brick1:feeds bldg:zone_045,
+        bldg:zone_052 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_2-3 a brick1:VAV ;
+    brick1:feeds bldg:zone_018 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_2-4B a brick1:VAV ;
+    brick1:feeds bldg:zone_019 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_2-5 a brick1:VAV ;
+    brick1:feeds bldg:zone_021 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_2-6 a brick1:VAV ;
+    brick1:feeds bldg:zone_022 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_2-7 a brick1:VAV ;
+    brick1:feeds bldg:zone_023 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_2-8 a brick1:VAV ;
+    brick1:feeds bldg:zone_024 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_2-9 a brick1:VAV ;
+    brick1:feeds bldg:zone_025 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_G-1 a brick1:VAV ;
+    brick1:feeds bldg:zone_046 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_G-10 a brick1:VAV ;
+    brick1:feeds bldg:zone_056 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_G-11 a brick1:VAV ;
+    brick1:feeds bldg:zone_057 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-12 a brick1:VAV ;
+    brick1:feeds bldg:zone_058 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-13A a brick1:VAV ;
+    brick1:feeds bldg:zone_059 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-14 a brick1:VAV ;
+    brick1:feeds bldg:zone_061 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_G-15 a brick1:VAV ;
+    brick1:feeds bldg:zone_062 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-16 a brick1:VAV ;
+    brick1:feeds bldg:zone_063 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-17 a brick1:VAV ;
+    brick1:feeds bldg:zone_064 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-18 a brick1:VAV ;
+    brick1:feeds bldg:zone_065 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_G-19 a brick1:VAV ;
+    brick1:feeds bldg:zone_066 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_G-2 a brick1:VAV ;
+    brick1:feeds bldg:zone_047 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_G-20 a brick1:VAV ;
+    brick1:feeds bldg:zone_067 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_G-21 a brick1:VAV ;
+    brick1:feeds bldg:zone_068 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_G-22 a brick1:VAV ;
+    brick1:feeds bldg:zone_069 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_G-23 a brick1:VAV ;
+    brick1:feeds bldg:zone_070 ;
+    brick1:isFedBy bldg:RTU04 .
+
+bldg:UTF_G-24 a brick1:VAV ;
+    brick1:feeds bldg:zone_071 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-25 a brick1:VAV ;
+    brick1:feeds bldg:zone_072 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-3 a brick1:VAV ;
+    brick1:feeds bldg:zone_048 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:UTF_G-4A a brick1:VAV ;
+    brick1:feeds bldg:zone_049 ;
+    brick1:isFedBy bldg:RTU03 .
+
+bldg:UTF_G-5 a brick1:VAV ;
+    brick1:feeds bldg:zone_051 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_G-7 a brick1:VAV ;
+    brick1:feeds bldg:zone_053 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_G-8 a brick1:VAV ;
+    brick1:feeds bldg:zone_054 ;
+    brick1:isFedBy bldg:RTU01 .
+
+bldg:UTF_G-9 a brick1:VAV ;
+    brick1:feeds bldg:zone_055 ;
+    brick1:isFedBy bldg:RTU02 .
+
+bldg:air_temp_set_1 a brick1:Outdoor_Air_Temperature_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:air_temp_set_2 a brick1:Outdoor_Air_Temperature_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:aru_001_cwr_temp a brick1:Chilled_Water_Temperature_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:aru_001_cws_fr_gpm a brick1:Chilled_Water_Supply_Flow_Rate ;
+    brick1:isPointOf bldg:Building .
+
+bldg:aru_001_cws_temp a brick1:Chilled_Water_Temperature_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:aru_001_hwr_temp a brick1:Hot_Water_Temperature_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:aru_001_hws_fr_gpm a brick1:Hot_Water_Supply_Flow_Rate ;
+    brick1:isPointOf bldg:Building .
+
+bldg:aru_001_hws_temp a brick1:Hot_Water_Temperature_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:hvac_N a brick1:Building_Electrical_Meter ;
+    brick1:isPointOf bldg:Building .
+
+bldg:hvac_S a brick1:Building_Electrical_Meter ;
+    brick1:isPointOf bldg:Building .
+
+<http://example.org/building#lig_S_+> a brick1:Building_Electrical_Meter ;
+    brick1:isPointOf bldg:Building .
+
+bldg:mels_N a brick1:Building_Electrical_Meter ;
+    brick1:isPointOf bldg:Building .
+
+bldg:mels_S a brick1:Building_Electrical_Meter ;
+    brick1:isPointOf bldg:Building .
+
+bldg:occ_forth_south a brick1:Occupant_Count ;
+    brick1:isPointOf bldg:Floor_S .
+
+bldg:occ_third_south a brick1:Occupant_Count ;
+    brick1:isPointOf bldg:Floor_G .
+
+bldg:relative_humidity_set_1 a brick1:Outdoor_Air_Humidity_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:solar_radiation_set_1 a brick1:Solar_Radiance_Sensor ;
+    brick1:isPointOf bldg:Building .
+
+bldg:wifi_fourth_south a brick1:Wifi_AP ;
+    brick1:isPointOf bldg:Floor_S .
+
+bldg:wifi_third_south a brick1:Wifi_AP ;
+    brick1:isPointOf bldg:Floor_G .
+
+bldg:zone_cerc_1 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_1 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_10 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_10 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_11 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_11 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_12 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_12 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_13 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_13 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_14 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_14 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_15 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_15 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_16 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_16 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_cerc_2 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_2 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_3 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_3 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_4 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_4 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_5 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_5 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_6 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_6 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_7 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_7 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_8 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_8 ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_cerc_9 a brick1:Zone ;
+    brick1:hasPoint bldg:cerc_templogger_9 ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:cerc_templogger_1 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_10 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_11 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_12 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_13 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_14 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_15 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_16 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_2 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_3 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_4 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_5 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_6 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_7 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_8 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:cerc_templogger_9 a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:rtu_001_econ_stpt_tn a brick1:Economizer_Setpoint .
+
+bldg:rtu_001_fltrd_gnd_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_001_fltrd_lvl2_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_001_ma_temp a brick1:Mixed_Air_Temperature_Sensor .
+
+bldg:rtu_001_oa_damper a brick1:Outdoor_Air_Damper .
+
+bldg:rtu_001_oa_fr a brick1:Outdoor_Air_Flow_Rate .
+
+bldg:rtu_001_pa_static_stpt_tn a brick1:Supply_Air_Static_Pressure_Setpoint .
+
+bldg:rtu_001_ra_temp a brick1:Return_Air_Temperature_Sensor .
+
+bldg:rtu_001_rf_vfd_spd_fbk_tn a brick1:Return_Air_Fan_Speed .
+
+bldg:rtu_001_sa_temp a brick1:Supply_Air_Temperature_Sensor .
+
+bldg:rtu_001_sf_vfd_spd_fbk_tn a brick1:Supply_Air_Fan_Speed .
+
+bldg:rtu_002_fltrd_gnd_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_002_fltrd_lvl2_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_002_ma_temp a brick1:Mixed_Air_Temperature_Sensor .
+
+bldg:rtu_002_oa_damper a brick1:Outdoor_Air_Damper .
+
+bldg:rtu_002_oa_fr a brick1:Outdoor_Air_Flow_Rate .
+
+bldg:rtu_002_pa_static_stpt_tn a brick1:Supply_Air_Static_Pressure_Setpoint .
+
+bldg:rtu_002_ra_temp a brick1:Return_Air_Temperature_Sensor .
+
+bldg:rtu_002_rf_vfd_spd_fbk_tn a brick1:Return_Air_Fan_Speed .
+
+bldg:rtu_002_sa_temp a brick1:Supply_Air_Temperature_Sensor .
+
+bldg:rtu_002_sf_vfd_spd_fbk_tn a brick1:Supply_Air_Fan_Speed .
+
+bldg:rtu_003_econ_stpt_tn a brick1:Economizer_Setpoint .
+
+bldg:rtu_003_fltrd_gnd_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_003_fltrd_lvl2_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_003_ma_temp a brick1:Mixed_Air_Temperature_Sensor .
+
+bldg:rtu_003_oa_damper a brick1:Outdoor_Air_Damper .
+
+bldg:rtu_003_oa_fr a brick1:Outdoor_Air_Flow_Rate .
+
+bldg:rtu_003_pa_static_stpt_tn a brick1:Supply_Air_Static_Pressure_Setpoint .
+
+bldg:rtu_003_ra_temp a brick1:Return_Air_Temperature_Sensor .
+
+bldg:rtu_003_rf_vfd_spd_fbk_tn a brick1:Return_Air_Fan_Speed .
+
+bldg:rtu_003_sa_temp a brick1:Supply_Air_Temperature_Sensor .
+
+bldg:rtu_003_sf_vfd_spd_fbk_tn a brick1:Supply_Air_Fan_Speed .
+
+bldg:rtu_004_econ_stpt_tn a brick1:Economizer_Setpoint .
+
+bldg:rtu_004_fltrd_gnd_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_004_fltrd_lvl2_plenum_press_tn a brick1:Underfloor_Air_Plenum_Static_Pressure_Sensor .
+
+bldg:rtu_004_ma_temp a brick1:Mixed_Air_Temperature_Sensor .
+
+bldg:rtu_004_oa_damper a brick1:Outdoor_Air_Damper .
+
+bldg:rtu_004_oa_fr a brick1:Outdoor_Air_Flow_Rate .
+
+bldg:rtu_004_pa_static_stpt_tn a brick1:Supply_Air_Static_Pressure_Setpoint .
+
+bldg:rtu_004_ra_temp a brick1:Return_Air_Temperature_Sensor .
+
+bldg:rtu_004_rf_vfd_spd_fbk_tn a brick1:Return_Air_Fan_Speed .
+
+bldg:rtu_004_sa_temp a brick1:Supply_Air_Temperature_Sensor .
+
+bldg:rtu_004_sf_vfd_spd_fbk_tn a brick1:Supply_Air_Fan_Speed .
+
+bldg:rtu_021_econ_stpt_tn a brick1:Economizer_Setpoint .
+
+bldg:zone_016 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_016_cooling_sp,
+        bldg:zone_016_fan_spd,
+        bldg:zone_016_heating_sp,
+        bldg:zone_016_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_016_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_016_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_016_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_016_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_017 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_017_cooling_sp,
+        bldg:zone_017_fan_spd,
+        bldg:zone_017_heating_sp,
+        bldg:zone_017_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_017_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_017_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_017_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_017_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_018 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_018_cooling_sp,
+        bldg:zone_018_fan_spd,
+        bldg:zone_018_heating_sp,
+        bldg:zone_018_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_018_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_018_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_018_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_018_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_019 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_019_cooling_sp,
+        bldg:zone_019_fan_spd,
+        bldg:zone_019_heating_sp,
+        bldg:zone_019_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_019_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_019_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_019_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_019_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_021 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_021_cooling_sp,
+        bldg:zone_021_fan_spd,
+        bldg:zone_021_heating_sp,
+        bldg:zone_021_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_021_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_021_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_021_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_021_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_022 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_022_co2,
+        bldg:zone_022_fan_spd,
+        bldg:zone_022_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_022_co2 a brick1:CO2_Sensor .
+
+bldg:zone_022_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_022_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_023 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_023_cooling_sp,
+        bldg:zone_023_fan_spd,
+        bldg:zone_023_heating_sp,
+        bldg:zone_023_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_023_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_023_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_023_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_023_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_024 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_024_cooling_sp,
+        bldg:zone_024_fan_spd,
+        bldg:zone_024_heating_sp,
+        bldg:zone_024_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_024_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_024_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_024_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_024_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_025 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_025_cooling_sp,
+        bldg:zone_025_fan_spd,
+        bldg:zone_025_heating_sp,
+        bldg:zone_025_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_025_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_025_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_025_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_025_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_026 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_026_cooling_sp,
+        bldg:zone_026_fan_spd,
+        bldg:zone_026_heating_sp,
+        bldg:zone_026_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_026_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_026_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_026_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_026_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_027 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_027_cooling_sp,
+        bldg:zone_027_fan_spd,
+        bldg:zone_027_heating_sp,
+        bldg:zone_027_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_027_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_027_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_027_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_027_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_028 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_028_co2,
+        bldg:zone_028_fan_spd,
+        bldg:zone_028_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_028_co2 a brick1:CO2_Sensor .
+
+bldg:zone_028_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_028_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_030 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_030_cooling_sp,
+        bldg:zone_030_fan_spd,
+        bldg:zone_030_heating_sp,
+        bldg:zone_030_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_030_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_030_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_030_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_030_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_032 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_032_cooling_sp,
+        bldg:zone_032_fan_spd,
+        bldg:zone_032_heating_sp,
+        bldg:zone_032_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_032_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_032_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_032_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_032_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_033 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_033_co2,
+        bldg:zone_033_fan_spd,
+        bldg:zone_033_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_033_co2 a brick1:CO2_Sensor .
+
+bldg:zone_033_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_033_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_035 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_035_cooling_sp,
+        bldg:zone_035_fan_spd,
+        bldg:zone_035_heating_sp,
+        bldg:zone_035_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_035_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_035_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_035_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_035_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_036 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_036_cooling_sp,
+        bldg:zone_036_fan_spd,
+        bldg:zone_036_heating_sp,
+        bldg:zone_036_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_036_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_036_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_036_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_036_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_037 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_037_cooling_sp,
+        bldg:zone_037_fan_spd,
+        bldg:zone_037_heating_sp,
+        bldg:zone_037_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_037_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_037_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_037_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_037_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_038 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_038_cooling_sp,
+        bldg:zone_038_fan_spd,
+        bldg:zone_038_heating_sp,
+        bldg:zone_038_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_038_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_038_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_038_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_038_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_039 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_039_cooling_sp,
+        bldg:zone_039_fan_spd,
+        bldg:zone_039_heating_sp,
+        bldg:zone_039_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_039_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_039_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_039_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_039_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_040 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_040_co2,
+        bldg:zone_040_fan_spd,
+        bldg:zone_040_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_040_co2 a brick1:CO2_Sensor .
+
+bldg:zone_040_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_040_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_041 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_041_cooling_sp,
+        bldg:zone_041_fan_spd,
+        bldg:zone_041_heating_sp,
+        bldg:zone_041_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_041_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_041_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_041_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_041_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_042 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_042_cooling_sp,
+        bldg:zone_042_fan_spd,
+        bldg:zone_042_heating_sp,
+        bldg:zone_042_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_042_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_042_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_042_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_042_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_043 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_043_cooling_sp,
+        bldg:zone_043_fan_spd,
+        bldg:zone_043_heating_sp,
+        bldg:zone_043_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_043_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_043_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_043_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_043_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_044 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_044_co2,
+        bldg:zone_044_fan_spd,
+        bldg:zone_044_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_044_co2 a brick1:CO2_Sensor .
+
+bldg:zone_044_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_044_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_045 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_045_co2,
+        bldg:zone_045_fan_spd,
+        bldg:zone_045_temp ;
+    brick1:isPartOf bldg:Floor_G .
+
+bldg:zone_045_co2 a brick1:CO2_Sensor .
+
+bldg:zone_045_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_045_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_046 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_046_cooling_sp,
+        bldg:zone_046_fan_spd,
+        bldg:zone_046_heating_sp,
+        bldg:zone_046_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_046_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_046_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_046_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_046_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_047 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_047_cooling_sp,
+        bldg:zone_047_fan_spd,
+        bldg:zone_047_heating_sp,
+        bldg:zone_047_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_047_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_047_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_047_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_047_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_048 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_048_cooling_sp,
+        bldg:zone_048_fan_spd,
+        bldg:zone_048_heating_sp,
+        bldg:zone_048_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_048_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_048_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_048_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_048_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_049 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_049_cooling_sp,
+        bldg:zone_049_fan_spd,
+        bldg:zone_049_heating_sp,
+        bldg:zone_049_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_049_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_049_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_049_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_049_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_051 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_051_cooling_sp,
+        bldg:zone_051_fan_spd,
+        bldg:zone_051_heating_sp,
+        bldg:zone_051_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_051_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_051_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_051_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_051_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_052 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_052_co2,
+        bldg:zone_052_fan_spd,
+        bldg:zone_052_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_052_co2 a brick1:CO2_Sensor .
+
+bldg:zone_052_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_052_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_053 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_053_cooling_sp,
+        bldg:zone_053_fan_spd,
+        bldg:zone_053_heating_sp,
+        bldg:zone_053_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_053_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_053_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_053_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_053_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_054 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:zone_054_cooling_sp,
+        bldg:zone_054_fan_spd,
+        bldg:zone_054_heating_sp,
+        bldg:zone_054_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_054_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_054_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_054_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_054_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_055 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_055_cooling_sp,
+        bldg:zone_055_fan_spd,
+        bldg:zone_055_heating_sp,
+        bldg:zone_055_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_055_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_055_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_055_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_055_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_056 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_056_cooling_sp,
+        bldg:zone_056_fan_spd,
+        bldg:zone_056_heating_sp,
+        bldg:zone_056_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_056_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_056_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_056_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_056_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_057 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_057_cooling_sp,
+        bldg:zone_057_fan_spd,
+        bldg:zone_057_heating_sp,
+        bldg:zone_057_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_057_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_057_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_057_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_057_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_058 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_058_co2,
+        bldg:zone_058_fan_spd,
+        bldg:zone_058_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_058_co2 a brick1:CO2_Sensor .
+
+bldg:zone_058_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_058_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_059 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_059_cooling_sp,
+        bldg:zone_059_fan_spd,
+        bldg:zone_059_heating_sp,
+        bldg:zone_059_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_059_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_059_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_059_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_059_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_061 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:zone_061_cooling_sp,
+        bldg:zone_061_fan_spd,
+        bldg:zone_061_heating_sp,
+        bldg:zone_061_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_061_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_061_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_061_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_061_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_062 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_062_co2,
+        bldg:zone_062_cooling_sp,
+        bldg:zone_062_fan_spd,
+        bldg:zone_062_heating_sp,
+        bldg:zone_062_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_062_co2 a brick1:CO2_Sensor .
+
+bldg:zone_062_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_062_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_062_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_062_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_063 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_063_cooling_sp,
+        bldg:zone_063_fan_spd,
+        bldg:zone_063_heating_sp,
+        bldg:zone_063_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_063_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_063_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_063_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_063_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_064 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_064_cooling_sp,
+        bldg:zone_064_fan_spd,
+        bldg:zone_064_heating_sp,
+        bldg:zone_064_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_064_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_064_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_064_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_064_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_065 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_065_cooling_sp,
+        bldg:zone_065_fan_spd,
+        bldg:zone_065_heating_sp,
+        bldg:zone_065_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_065_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_065_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_065_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_065_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_066 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_066_cooling_sp,
+        bldg:zone_066_fan_spd,
+        bldg:zone_066_heating_sp,
+        bldg:zone_066_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_066_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_066_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_066_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_066_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_067 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_067_cooling_sp,
+        bldg:zone_067_fan_spd,
+        bldg:zone_067_heating_sp,
+        bldg:zone_067_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_067_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_067_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_067_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_067_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_068 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_068_co2,
+        bldg:zone_068_fan_spd,
+        bldg:zone_068_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_068_co2 a brick1:CO2_Sensor .
+
+bldg:zone_068_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_068_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_069 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_069_cooling_sp,
+        bldg:zone_069_fan_spd,
+        bldg:zone_069_heating_sp,
+        bldg:zone_069_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_069_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_069_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_069_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_069_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_070 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:zone_070_cooling_sp,
+        bldg:zone_070_fan_spd,
+        bldg:zone_070_heating_sp,
+        bldg:zone_070_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_070_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_070_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_070_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_070_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_071 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_071_cooling_sp,
+        bldg:zone_071_fan_spd,
+        bldg:zone_071_heating_sp,
+        bldg:zone_071_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_071_cooling_sp a brick1:Cooling_Temperature_Setpoint .
+
+bldg:zone_071_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_071_heating_sp a brick1:Heating_Temperature_Setpoint .
+
+bldg:zone_071_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:zone_072 a brick1:Zone ;
+    brick1:hasLocation bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:zone_072_co2,
+        bldg:zone_072_fan_spd,
+        bldg:zone_072_temp ;
+    brick1:isPartOf bldg:Floor_S .
+
+bldg:zone_072_co2 a brick1:CO2_Sensor .
+
+bldg:zone_072_fan_spd a brick1:Supply_Air_Flow_Sensor .
+
+bldg:zone_072_temp a brick1:Zone_Air_Temperature_Sensor .
+
+bldg:RTU02 a brick1:Rooftop_Unit ;
+    brick1:feeds bldg:RTU02_Zone ;
+    brick1:hasPoint bldg:rtu_002_fltrd_gnd_plenum_press_tn,
+        bldg:rtu_002_fltrd_lvl2_plenum_press_tn,
+        bldg:rtu_002_ma_temp,
+        bldg:rtu_002_oa_damper,
+        bldg:rtu_002_oa_fr,
+        bldg:rtu_002_pa_static_stpt_tn,
+        bldg:rtu_002_ra_temp,
+        bldg:rtu_002_rf_vfd_spd_fbk_tn,
+        bldg:rtu_002_sa_temp,
+        bldg:rtu_002_sf_vfd_spd_fbk_tn,
+        bldg:rtu_021_econ_stpt_tn .
+
+bldg:RTU01 a brick1:Rooftop_Unit ;
+    brick1:feeds bldg:RTU01_Zone ;
+    brick1:hasPoint bldg:rtu_001_econ_stpt_tn,
+        bldg:rtu_001_fltrd_gnd_plenum_press_tn,
+        bldg:rtu_001_fltrd_lvl2_plenum_press_tn,
+        bldg:rtu_001_ma_temp,
+        bldg:rtu_001_oa_damper,
+        bldg:rtu_001_oa_fr,
+        bldg:rtu_001_pa_static_stpt_tn,
+        bldg:rtu_001_ra_temp,
+        bldg:rtu_001_rf_vfd_spd_fbk_tn,
+        bldg:rtu_001_sa_temp,
+        bldg:rtu_001_sf_vfd_spd_fbk_tn .
+
+bldg:RTU02_Zone a brick1:HVAC_Zone .
+
+bldg:RTU01_Zone a brick1:HVAC_Zone .
+
+bldg:RTU04 a brick1:Rooftop_Unit ;
+    brick1:feeds bldg:RTU04_Zone ;
+    brick1:hasPoint bldg:rtu_004_econ_stpt_tn,
+        bldg:rtu_004_fltrd_gnd_plenum_press_tn,
+        bldg:rtu_004_fltrd_lvl2_plenum_press_tn,
+        bldg:rtu_004_ma_temp,
+        bldg:rtu_004_oa_damper,
+        bldg:rtu_004_oa_fr,
+        bldg:rtu_004_pa_static_stpt_tn,
+        bldg:rtu_004_ra_temp,
+        bldg:rtu_004_rf_vfd_spd_fbk_tn,
+        bldg:rtu_004_sa_temp,
+        bldg:rtu_004_sf_vfd_spd_fbk_tn .
+
+bldg:RTU04_Zone a brick1:HVAC_Zone .
+
+bldg:Building a brick1:Building .
+
+bldg:RTU03 a brick1:Rooftop_Unit ;
+    brick1:feeds bldg:RTU03_Zone ;
+    brick1:hasPoint bldg:rtu_003_econ_stpt_tn,
+        bldg:rtu_003_fltrd_gnd_plenum_press_tn,
+        bldg:rtu_003_fltrd_lvl2_plenum_press_tn,
+        bldg:rtu_003_ma_temp,
+        bldg:rtu_003_oa_damper,
+        bldg:rtu_003_oa_fr,
+        bldg:rtu_003_pa_static_stpt_tn,
+        bldg:rtu_003_ra_temp,
+        bldg:rtu_003_rf_vfd_spd_fbk_tn,
+        bldg:rtu_003_sa_temp,
+        bldg:rtu_003_sf_vfd_spd_fbk_tn .
+
+bldg:RTU03_Zone a brick1:HVAC_Zone .
+
+bldg:Floor_S a brick1:Floor ;
+    brick1:isPartOf bldg:Building .
+
+bldg:Floor_G a brick1:Floor ;
+    brick1:isPartOf bldg:Building .
+
