@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, BarChart, Bar, ReferenceLine, CartesianGrid } from "recharts";
 import { Activity, Zap, Droplets, ThermometerSun, AlertTriangle, CheckCircle, XCircle, TrendingUp, Clock, Shield, Gauge, Wind, Play, Pause, SkipForward, Radio } from "lucide-react";
-
+import { ContainerClient } from "@azure/storage-blob";
 const VIB_WARN = 4.5, VIB_FAIL = 8.0, LEG_LIMIT = 60, COMFORT_BAND = 2.0;
 const CHART_WINDOW = 48;
 const SPEED_OPTIONS = [500, 1000, 2000, 4000];
@@ -45,14 +45,15 @@ const Badge = ({ status }) => {
 const Metric = ({ label, value, unit, sub, accent = C.cyan, icon: Icon }) => (
   <div style={{ padding:"16px 18px", background:C.surface, border:`1px solid ${C.border}`, borderRadius:8 }}>
     <div style={{ display:"flex", alignItems:"center", gap:6, marginBottom:8 }}>
-      {Icon && <Icon size={13} color={C.textDim}/>}
-      <span style={{ fontSize:10, color:C.textDim, fontFamily:mono, letterSpacing:0.6, textTransform:"uppercase" }}>{label}</span>
+      {Icon && <Icon size={14} color={C.textMuted}/>}
+      {/* FIXED: Brighter color (C.textMuted), larger font (12), bolder weight */}
+      <span style={{ fontSize:12, fontWeight:600, color:C.textMuted, fontFamily:mono, letterSpacing:0.6, textTransform:"uppercase" }}>{label}</span>
     </div>
     <div style={{ display:"flex", alignItems:"baseline", gap:3 }}>
       <span style={{ fontSize:26, fontWeight:700, color:C.text, fontFamily:mono, letterSpacing:-1 }}>{value}</span>
-      {unit && <span style={{ fontSize:12, color:C.textDim }}>{unit}</span>}
+      {unit && <span style={{ fontSize:13, color:C.textMuted }}>{unit}</span>}
     </div>
-    {sub && <div style={{ fontSize:10, color: typeof sub === "string" && sub.includes("-") ? C.red : C.textDim, marginTop:4 }}>{sub}</div>}
+    {sub && <div style={{ fontSize:11, color: typeof sub === "string" && sub.includes("-") ? C.red : C.textMuted, marginTop:4 }}>{sub}</div>}
   </div>
 );
 
@@ -66,7 +67,8 @@ const TT = ({ active, payload, label }) => {
 
 const ChartBox = ({ title, children, h = 180 }) => (
   <div style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:8, padding:"14px 16px" }}>
-    <div style={{ fontSize:11, color:C.textDim, marginBottom:10, fontFamily:mono, letterSpacing:0.3 }}>{title}</div>
+    {/* FIXED: Brighter color, larger font */}
+    <div style={{ fontSize:13, fontWeight:600, color:C.textMuted, marginBottom:10, fontFamily:mono, letterSpacing:0.3 }}>{title}</div>
     <ResponsiveContainer width="100%" height={h}>{children}</ResponsiveContainer>
   </div>
 );
@@ -232,37 +234,43 @@ const EnergyView = ({ data, current }) => {
 };
 
 const ComplianceView = ({ data, current }) => {
-  const c = current;
+  const c = current || {};
+  // FIXED: Added fallback values so the app never crashes if Azure data is missing a field!
+  const hwc = c.hwc || 0;
+  const cg = c.cg || 0;
+  const vib = c.vib || 0;
+  const gh = c.gh || 0;
+
   const checks = [
-    { name: "Hot Water > 60°C (HSG274)", pass: c.hwc >= LEG_LIMIT, val: `${c.hwc.toFixed(1)}°C` },
-    { name: "Zone Comfort ±2°F (CIBSE)", pass: Math.abs(c.cg) < COMFORT_BAND, val: `${c.cg.toFixed(1)}°F gap` },
-    { name: "Equipment Vibration (ISO 10816)", pass: c.vib < VIB_FAIL, val: `${c.vib.toFixed(1)} mm/s` },
-    { name: "Ghost Lighting", pass: !c.gh, val: c.gh ? "Detected" : "Clear" },
+    { name: "Hot Water > 60°C (HSG274)", pass: hwc >= LEG_LIMIT, val: `${hwc.toFixed(1)}°C` },
+    { name: "Zone Comfort ±2°F (CIBSE)", pass: Math.abs(cg) < COMFORT_BAND, val: `${Math.abs(cg).toFixed(1)}°F gap` },
+    { name: "Equipment Vibration (ISO 10816)", pass: vib < VIB_FAIL, val: `${vib.toFixed(1)} mm/s` },
+    { name: "Ghost Lighting", pass: !gh, val: gh ? "Detected" : "Clear" },
   ];
   const passed = checks.filter(x => x.pass).length;
   return <>
     <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:10 }}>
       <Metric icon={Shield} label="Score" value={`${passed}/${checks.length}`} accent={passed===checks.length?C.green:C.amber}/>
-      <Metric icon={Droplets} label="HW Temp" value={c.hwc.toFixed(1)} unit="°C" sub={c.hwc<60?"Below limit":"Compliant"}/>
-      <Metric icon={Activity} label="Vibration" value={c.vib.toFixed(1)} unit="mm/s"/>
-      <Metric icon={ThermometerSun} label="Comfort Gap" value={Math.abs(c.cg).toFixed(1)} unit="°F"/>
+      <Metric icon={Droplets} label="HW Temp" value={hwc.toFixed(1)} unit="°C" sub={hwc<60?"Below limit":"Compliant"}/>
+      <Metric icon={Activity} label="Vibration" value={vib.toFixed(1)} unit="mm/s"/>
+      <Metric icon={ThermometerSun} label="Comfort Gap" value={Math.abs(cg).toFixed(1)} unit="°F"/>
     </div>
     <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:12, marginTop:12 }}>
       <div style={{ background:C.surface, border:`1px solid ${C.border}`, borderRadius:8, padding:16 }}>
-        <div style={{ fontSize:11, color:C.textDim, marginBottom:12, fontFamily:mono }}>Compliance Checks</div>
+        <div style={{ fontSize:13, fontWeight:600, color:C.textMuted, marginBottom:12, fontFamily:mono }}>Compliance Checks</div>
         {checks.map((ch,i) => (
           <div key={i} style={{ display:"flex", alignItems:"center", gap:10, padding:"10px 12px", background:C.surfaceAlt, borderRadius:6, marginBottom:6, borderLeft:`3px solid ${ch.pass?C.green:C.red}` }}>
             {ch.pass ? <CheckCircle size={14} color={C.green}/> : <XCircle size={14} color={C.red}/>}
             <div style={{ flex:1 }}>
-              <div style={{ fontSize:12, color:C.text }}>{ch.name}</div>
-              <div style={{ fontSize:10, color:C.textDim }}>{ch.val}</div>
+              <div style={{ fontSize:13, fontWeight:500, color:C.text }}>{ch.name}</div>
+              <div style={{ fontSize:11, color:C.textMuted }}>{ch.val}</div>
             </div>
             <Badge status={ch.pass?"compliant":"breach"}/>
           </div>
         ))}
       </div>
       <ChartBox title="Hot Water Temperature — Legionella Monitor" h={220}>
-        <AreaChart data={data}><CartesianGrid stroke={C.border} strokeDasharray="3 3"/><XAxis dataKey="t" tick={{fontSize:8,fill:C.textDim}} interval={Math.floor(data.length/6)}/><YAxis tick={{fontSize:9,fill:C.textDim}} domain={[54,68]}/><Tooltip content={<TT/>}/><ReferenceLine y={60} stroke={C.red} strokeDasharray="4 4"/><Area dataKey="hwc" name="HW Temp °C" stroke={C.cyan} fill={`${C.cyan}12`} strokeWidth={2}/></AreaChart>
+        <AreaChart data={data}><CartesianGrid stroke={C.border} strokeDasharray="3 3"/><XAxis dataKey="t" tick={{fontSize:10,fill:C.textMuted}} interval={Math.floor(data.length/6)}/><YAxis tick={{fontSize:10,fill:C.textMuted}} domain={[54,68]}/><Tooltip content={<TT/>}/><ReferenceLine y={60} stroke={C.red} strokeDasharray="4 4"/><Area dataKey="hwc" name="HW Temp °C" stroke={C.cyan} fill={`${C.cyan}12`} strokeWidth={2}/></AreaChart>
       </ChartBox>
     </div>
   </>;
@@ -293,38 +301,49 @@ export default function App() {
       .catch(() => console.log("Using embedded data fallback"));
   }, []);
 
-  // 2. Fetch Azure Blob
+  // 2. Fetch Azure Blob (FIXED: Using Azure SDK instead of Claude's raw fetch)
   useEffect(() => {
     if (dataSource !== "azure") return;
     
     const fetchBlob = async () => {
       try {
-        // Fetch as TEXT to handle Stream Analytics format
-        const [hvacRes, pumpsRes, elecRes, compRes] = await Promise.all([
-          fetch(BLOB_CONFIG.hvacUrl).then(r => r.ok ? r.text() : null),
-          fetch(BLOB_CONFIG.pumpsUrl).then(r => r.ok ? r.text() : null),
-          fetch(BLOB_CONFIG.elecUrl).then(r => r.ok ? r.text() : null),
-          fetch(BLOB_CONFIG.complianceUrl).then(r => r.ok ? r.text() : null)
-        ]);
-        
-        // Helper to parse line-separated JSON
-        const parseLatest = (text) => {
-          if (!text) return {};
-          const lines = text.split('\n').filter(l => l.trim());
+        const getLatestFromContainer = async (sasUrl) => {
+          if (!sasUrl) return {};
+          const client = new ContainerClient(sasUrl);
+          let latestBlob = null;
+          let latestDate = new Date(0);
+          
+          // Find the newest file generated by Stream Analytics
+          for await (const blob of client.listBlobsFlat()) {
+            if (blob.properties.createdOn > latestDate) {
+              latestDate = blob.properties.createdOn;
+              latestBlob = blob.name;
+            }
+          }
+          if (!latestBlob) return {};
+          
+          // Download and parse the newest file
+          const blobClient = client.getBlobClient(latestBlob);
+          const response = await blobClient.downloadToBuffer();
+          const lines = response.toString().split('\n').filter(l => l.trim());
           return lines.length > 0 ? JSON.parse(lines[lines.length - 1]) : {};
         };
 
+        const [hvacRes, pumpsRes, elecRes, compRes] = await Promise.all([
+          getLatestFromContainer(BLOB_CONFIG.hvacUrl),
+          getLatestFromContainer(BLOB_CONFIG.pumpsUrl),
+          getLatestFromContainer(BLOB_CONFIG.elecUrl),
+          getLatestFromContainer(BLOB_CONFIG.complianceUrl)
+        ]);
+
         const combined = { 
           t: new Date().toISOString().slice(0, 16).replace("T", " "),
-          ...parseLatest(hvacRes), 
-          ...parseLatest(pumpsRes), 
-          ...parseLatest(elecRes),
-          ...parseLatest(compRes)
+          ...hvacRes, ...pumpsRes, ...elecRes, ...compRes
         };
 
         setLiveData(prev => [...prev, combined].slice(-CHART_WINDOW));
       } catch (e) {
-        console.warn("Blob fetch failed:", e);
+        console.warn("Azure fetch failed. Check SAS tokens and CORS:", e);
       }
     };
     
@@ -333,26 +352,27 @@ export default function App() {
     return () => clearInterval(interval);
   }, [dataSource]);
 
-  // 3. The Combined Rule (NO RAW_DATA)
+  // 3. The Combined Rule
   const data = dataSource === "azure" && liveData.length > 0 ? liveData : rawData;
 
-  // Wait for data to load before rendering!
+  // 4. FIX: Moved the auto-play hook ABOVE the early return to stop Error 310!
+  useEffect(() => {
+    if (playing && dataSource === "replay" && data && data.length > 0) {
+      timerRef.current = setInterval(() => {
+        setIdx(prev => (prev + 1) % data.length);
+      }, speed);
+    }
+    return () => clearInterval(timerRef.current);
+  }, [playing, speed, data, dataSource]);
+
+  // Wait for data to load before rendering the UI
   if (!data || data.length === 0) {
     return <div style={{ background: C.bg, color: C.text, minHeight: "100vh", padding: 20 }}>Loading Telemetry...</div>;
   }
 
   const current = data[idx] || data[data.length - 1];
   const history = data.slice(0, idx + 1).slice(-CHART_WINDOW);
-
-  useEffect(() => {
-    if (playing && dataSource === "replay") {
-      timerRef.current = setInterval(() => {
-        setIdx(prev => (prev + 1) % data.length);
-      }, speed);
-    }
-    return () => clearInterval(timerRef.current);
-  }, [playing, speed, data.length, dataSource]);
-
+  
   const liveIndicator = playing || dataSource === "azure";
   const ts = current.t || "";
   const day = ts.slice(5, 10);
@@ -367,7 +387,6 @@ export default function App() {
 
   return (
     <div style={{ minHeight:"100vh", background:C.bg, color:C.text, fontFamily:sans }}>
-      {/* Header */}
       <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"10px 20px", borderBottom:`1px solid ${C.border}`, background:C.surface }}>
         <div style={{ display:"flex", alignItems:"center", gap:14 }}>
           <div style={{ width:30, height:30, borderRadius:6, background:`linear-gradient(135deg, ${C.cyan}40, ${C.purple}40)`, border:`1px solid ${C.border}`, display:"flex", alignItems:"center", justifyContent:"center" }}><Activity size={14} color={C.cyan}/></div>
@@ -376,43 +395,46 @@ export default function App() {
             <div style={{ fontSize:10, color:C.textDim, fontFamily:mono }}>BLDG59-LBNL-BERKELEY</div>
           </div>
         </div>
-        <div style={{ display:"flex", alignItems:"center", gap:16 }}>
+<div style={{ display:"flex", alignItems:"center", gap:16 }}>
           <button 
             onClick={() => setDataSource(prev => prev === "replay" ? "azure" : "replay")}
-            style={{
-              padding: "4px 10px", borderRadius: 4, fontSize: 10, fontFamily: mono,
-              background: dataSource === "azure" ? `${C.green}20` : C.surfaceAlt,
-              border: `1px solid ${dataSource === "azure" ? C.green : C.border}`,
-              color: dataSource === "azure" ? C.green : C.textDim,
-              cursor: "pointer"
-            }}
+            style={{ padding: "6px 12px", borderRadius: 4, fontSize: 11, fontWeight:600, fontFamily: mono, background: dataSource === "azure" ? `${C.green}20` : C.surfaceAlt, border: `1px solid ${dataSource === "azure" ? C.green : C.border}`, color: dataSource === "azure" ? C.green : C.textMuted, cursor: "pointer" }}
           >
             {dataSource === "azure" ? "🟢 LIVE — Azure Blob" : "⚪ REPLAY — Local Data"}
           </button>
-          {/* Playback controls */}
+          
+          {/* Hide playback buttons if in Azure mode */}
+          {dataSource === "replay" && (
+            <div style={{ display:"flex", alignItems:"center", gap:6, padding:"4px 10px", background:C.surfaceAlt, borderRadius:6, border:`1px solid ${C.border}` }}>
+              <button onClick={() => setPlaying(!playing)} style={{ background:"none", border:"none", cursor:"pointer", color:C.text, display:"flex", padding:2 }}>
+                {playing ? <Pause size={12}/> : <Play size={12}/>}
+              </button>
+              <button onClick={() => setIdx(prev => Math.min(prev + 10, data.length - 1))} style={{ background:"none", border:"none", cursor:"pointer", color:C.textMuted, display:"flex", padding:2 }}>
+                <SkipForward size={12}/>
+              </button>
+              <select value={speed} onChange={e => setSpeed(Number(e.target.value))} style={{ background:C.bg, border:`1px solid ${C.border}`, borderRadius:4, color:C.textMuted, fontSize:10, fontFamily:mono, padding:"2px 4px" }}>
+                {SPEED_OPTIONS.map(s => <option key={s} value={s}>{s < 1000 ? "0.5s" : `${s/1000}s`}</option>)}
+              </select>
+            </div>
+          )}
+
+          {/* Status Indicator */}
           <div style={{ display:"flex", alignItems:"center", gap:6, padding:"4px 10px", background:C.surfaceAlt, borderRadius:6, border:`1px solid ${C.border}` }}>
-            <button onClick={() => setPlaying(!playing)} style={{ background:"none", border:"none", cursor:"pointer", color:C.text, display:"flex", padding:2 }}>
-              {playing ? <Pause size={12}/> : <Play size={12}/>}
-            </button>
-            <button onClick={() => setIdx(prev => Math.min(prev + 10, data.length - 1))} style={{ background:"none", border:"none", cursor:"pointer", color:C.textMuted, display:"flex", padding:2 }}>
-              <SkipForward size={12}/>
-            </button>
-            <select value={speed} onChange={e => setSpeed(Number(e.target.value))} style={{ background:C.bg, border:`1px solid ${C.border}`, borderRadius:4, color:C.textMuted, fontSize:10, fontFamily:mono, padding:"2px 4px" }}>
-              {SPEED_OPTIONS.map(s => <option key={s} value={s}>{s < 1000 ? "0.5s" : `${s/1000}s`}</option>)}
-            </select>
+            {liveIndicator && <span style={{ width:8, height:8, borderRadius:"50%", background: dataSource === "azure" && liveData.length === 0 ? C.amber : C.green, animation:"pulse 1.5s infinite" }}/>}
+            <span style={{ fontSize:11, fontWeight:600, fontFamily:mono, color:C.textMuted }}>
+              {dataSource === "azure" 
+                ? (liveData.length > 0 ? `LIVE AS OF: ${time}` : "AWAITING AZURE DATA...") 
+                : `Jan ${day} ${time}`}
+            </span>
           </div>
-          {/* Live indicator */}
-          <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-            {liveIndicator && <span style={{ width:6, height:6, borderRadius:"50%", background:C.green, animation:"pulse 1.5s infinite" }}/>}
-            <span style={{ fontSize:10, fontFamily:mono, color:C.textMuted }}>Jan {day} {time}</span>
-          </div>
-          <div style={{ fontSize:10, fontFamily:mono, color:C.textDim, padding:"3px 8px", background:C.surfaceAlt, borderRadius:4 }}>
-            {dataSource === "azure" ? "LIVE" : `${idx + 1} / ${data.length}`}
-          </div>
+          
+          {dataSource === "replay" && (
+            <div style={{ fontSize:11, fontFamily:mono, color:C.textMuted, padding:"4px 8px", background:C.surfaceAlt, borderRadius:4 }}>
+              {idx + 1} / {data.length}
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Tabs */}
       <div style={{ display:"flex", gap:4, padding:"8px 20px", borderBottom:`1px solid ${C.border}` }}>
         {tabs.map(tab => {
           const Icon = tab.icon;
@@ -422,21 +444,16 @@ export default function App() {
           </button>;
         })}
       </div>
-
-      {/* Content */}
       <div style={{ padding:20 }}>
         {sector === "hvac" && <HVACView data={history} current={current}/>}
         {sector === "pumps" && <PumpsView data={history} current={current}/>}
         {sector === "energy" && <EnergyView data={history} current={current}/>}
         {sector === "compliance" && <ComplianceView data={history} current={current}/>}
       </div>
-
-      {/* Footer */}
       <div style={{ padding:"8px 20px", borderTop:`1px solid ${C.border}`, display:"flex", justifyContent:"space-between" }}>
         <span style={{ fontSize:9, color:C.textDim, fontFamily:mono }}>Data: LBNL Building 59 Operational Dataset (Luo et al., 2022, Nature Scientific Data) — Enriched with physics-informed synthetic degradation</span>
         <span style={{ fontSize:9, color:C.textDim, fontFamily:mono }}>v2.0 — Dynamic Replay Mode</span>
       </div>
-
       <style>{`@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }`}</style>
     </div>
   );
