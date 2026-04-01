@@ -291,7 +291,7 @@ export default function App() {
 
 const [dataSource, setDataSource] = useState(BLOB_CONFIG.enabled ? "azure" : "replay");
   const [connStatus, setConnStatus] = useState("Initializing...");
-
+const [liveData, setLiveData] = useState([])
   useEffect(() => {
     if (dataSource !== "azure") {
       setConnStatus("Offline (Replay Mode)");
@@ -420,17 +420,18 @@ const [dataSource, setDataSource] = useState(BLOB_CONFIG.enabled ? "azure" : "re
           )}
 
 {/* Status Indicator */}
-  <div style={{ display:"flex", alignItems:"center", gap:10, padding:"4px 12px", background:C.surfaceAlt, borderRadius:6, border:`1px solid ${C.border}` }}>
-    <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-      <span style={{ 
-        width:8, height:8, borderRadius:"50%", 
-        background: dataSource === "azure" ? (liveData.length > 0 ? C.green : C.amber) : C.textDim,
-        animation: liveIndicator ? "pulse 1.5s infinite" : "none" 
-      }}/>
-      <span style={{ fontSize:11, fontWeight:600, fontFamily:mono, color:C.textMuted }}>
-        {connStatus}
-      </span>
-    </div>
+          <div style={{ display:"flex", alignItems:"center", gap:10, padding:"4px 12px", background:C.surfaceAlt, borderRadius:6, border:`1px solid ${C.border}` }}>
+            <div style={{ display:"flex", alignItems:"center", gap:6 }}>
+              <span style={{ 
+                width:8, height:8, borderRadius:"50%", 
+                background: dataSource === "azure" ? (liveData && liveData.length > 0 ? C.green : C.amber) : C.textDim,
+                animation: liveIndicator ? "pulse 1.5s infinite" : "none" 
+              }}/>
+              <span style={{ fontSize:11, fontWeight:600, fontFamily:mono, color:C.textMuted }}>
+                {connStatus}
+              </span>
+            </div>
+          
   </div>
           
           {dataSource === "replay" && (
