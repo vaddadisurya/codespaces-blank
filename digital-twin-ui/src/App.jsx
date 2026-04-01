@@ -11,43 +11,14 @@ const SPEED_OPTIONS = [500, 1000, 2000, 4000];
 // For artifact: embedded subset (every 3rd hour = 248 points covers full month)
 // Configuration — set your blob SAS URL here when ready
 const BLOB_CONFIG = {
-  enabled: false, // Toggle to true when Stream Analytics is running
-  // Generate SAS URL: Azure Portal → Storage Account → Containers → telemetry-hvac → Shared access tokens → Generate
-  hvacUrl: "https://stbldg59poc.blob.core.windows.net/telemetry-hvac?sv=2022-11-02&...",
-  pumpsUrl: "https://stbldg59poc.blob.core.windows.net/telemetry-pumps?sv=...",
-  elecUrl: "https://stbldg59poc.blob.core.windows.net/telemetry-elec?sv=...",
-  pollIntervalMs: 30000, // Fetch new blob data every 30 seconds
+enabled: true, // Set to true to allow Azure Live Mode
+  hvacUrl: import.meta.env.VITE_AZURE_HVAC_SAS,
+  pumpsUrl: import.meta.env.VITE_AZURE_PUMPS_SAS,
+  elecUrl: import.meta.env.VITE_AZURE_ELEC_SAS,
+  complianceUrl: import.meta.env.VITE_AZURE_COMPLIANCE_SAS,
+  pollIntervalMs: 30000,
 };
 
-// Inside your App component, add this data loading hook:
-const [liveData, setLiveData] = useState(null);
-const [dataSource, setDataSource] = useState(BLOB_CONFIG.enabled ? "azure" : "replay");
-
-useEffect(() => {
-  if (dataSource !== "azure") return;
-  
-  const fetchBlob = async () => {
-    try {
-      // Fetch latest blob from each container
-      const [hvacRes, pumpsRes, elecRes] = await Promise.all([
-        fetch(BLOB_CONFIG.hvacUrl).then(r => r.json()).catch(() => null),
-        fetch(BLOB_CONFIG.pumpsUrl).then(r => r.json()).catch(() => null),
-        fetch(BLOB_CONFIG.elecUrl).then(r => r.json()).catch(() => null),
-      ]);
-      setLiveData({ hvac: hvacRes, pumps: pumpsRes, elec: elecRes });
-    } catch (e) {
-      console.warn("Blob fetch failed, falling back to replay:", e);
-      setDataSource("replay");
-    }
-  };
-  
-  fetchBlob();
-  const interval = setInterval(fetchBlob, BLOB_CONFIG.pollIntervalMs);
-  return () => clearInterval(interval);
-}, [dataSource]);
-
-// Use this to select data source:
-const data = dataSource === "azure" && liveData ? liveData : RAW_DATA;
 
 // ============================================================
 // STYLING
@@ -300,6 +271,9 @@ const ComplianceView = ({ data, current }) => {
 // ============================================================
 // MAIN
 // ============================================================
+// ============================================================
+// MAIN
+// ============================================================
 export default function App() {
   const [sector, setSector] = useState("hvac");
   const [idx, setIdx] = useState(0);
@@ -307,34 +281,82 @@ export default function App() {
   const [speed, setSpeed] = useState(1500);
   const timerRef = useRef(null);
 
-  // In your App component:
-const [rawData, setRawData] = useState(RAW_DATA); // fallback to embedded
+  const [dataSource, setDataSource] = useState(BLOB_CONFIG.enabled ? "azure" : "replay");
+  const [liveData, setLiveData] = useState([]);
+  const [rawData, setRawData] = useState([]); 
 
-useEffect(() => {
-  fetch("/telemetry_full.json")
-    .then(r => r.json())
-    .then(data => setRawData(data))
-    .catch(() => console.log("Using embedded data fallback"));
-}, []);
+  // 1. Fetch Local JSON
+  useEffect(() => {
+    fetch("telemetry_full.json")
+      .then(r => r.json())
+      .then(data => setRawData(data))
+      .catch(() => console.log("Using embedded data fallback"));
+  }, []);
 
-// Then use rawData instead of RAW_DATA throughout
-  const data = rawData;
-  const current = data[idx] || data[0];
+  // 2. Fetch Azure Blob
+  useEffect(() => {
+    if (dataSource !== "azure") return;
+    
+    const fetchBlob = async () => {
+      try {
+        // Fetch as TEXT to handle Stream Analytics format
+        const [hvacRes, pumpsRes, elecRes, compRes] = await Promise.all([
+          fetch(BLOB_CONFIG.hvacUrl).then(r => r.ok ? r.text() : null),
+          fetch(BLOB_CONFIG.pumpsUrl).then(r => r.ok ? r.text() : null),
+          fetch(BLOB_CONFIG.elecUrl).then(r => r.ok ? r.text() : null),
+          fetch(BLOB_CONFIG.complianceUrl).then(r => r.ok ? r.text() : null)
+        ]);
+        
+        // Helper to parse line-separated JSON
+        const parseLatest = (text) => {
+          if (!text) return {};
+          const lines = text.split('\n').filter(l => l.trim());
+          return lines.length > 0 ? JSON.parse(lines[lines.length - 1]) : {};
+        };
+
+        const combined = { 
+          t: new Date().toISOString().slice(0, 16).replace("T", " "),
+          ...parseLatest(hvacRes), 
+          ...parseLatest(pumpsRes), 
+          ...parseLatest(elecRes),
+          ...parseLatest(compRes)
+        };
+
+        setLiveData(prev => [...prev, combined].slice(-CHART_WINDOW));
+      } catch (e) {
+        console.warn("Blob fetch failed:", e);
+      }
+    };
+    
+    fetchBlob();
+    const interval = setInterval(fetchBlob, BLOB_CONFIG.pollIntervalMs);
+    return () => clearInterval(interval);
+  }, [dataSource]);
+
+  // 3. The Combined Rule (NO RAW_DATA)
+  const data = dataSource === "azure" && liveData.length > 0 ? liveData : rawData;
+
+  // Wait for data to load before rendering!
+  if (!data || data.length === 0) {
+    return <div style={{ background: C.bg, color: C.text, minHeight: "100vh", padding: 20 }}>Loading Telemetry...</div>;
+  }
+
+  const current = data[idx] || data[data.length - 1];
   const history = data.slice(0, idx + 1).slice(-CHART_WINDOW);
 
   useEffect(() => {
-    if (playing) {
+    if (playing && dataSource === "replay") {
       timerRef.current = setInterval(() => {
         setIdx(prev => (prev + 1) % data.length);
       }, speed);
     }
     return () => clearInterval(timerRef.current);
-  }, [playing, speed, data.length]);
+  }, [playing, speed, data.length, dataSource]);
 
-  const liveIndicator = playing;
-  const ts = current.t;
-  const day = ts?.slice(5, 10);
-  const time = ts?.slice(11, 16);
+  const liveIndicator = playing || dataSource === "azure";
+  const ts = current.t || "";
+  const day = ts.slice(5, 10);
+  const time = ts.slice(11, 16);
 
   const tabs = [
     { id: "hvac", label: "HVAC", icon: Wind },
@@ -356,17 +378,17 @@ useEffect(() => {
         </div>
         <div style={{ display:"flex", alignItems:"center", gap:16 }}>
           <button 
-  onClick={() => setDataSource(prev => prev === "replay" ? "azure" : "replay")}
-  style={{
-    padding: "4px 10px", borderRadius: 4, fontSize: 10, fontFamily: mono,
-    background: dataSource === "azure" ? `${C.green}20` : C.surfaceAlt,
-    border: `1px solid ${dataSource === "azure" ? C.green : C.border}`,
-    color: dataSource === "azure" ? C.green : C.textDim,
-    cursor: "pointer"
-  }}
->
-  {dataSource === "azure" ? "LIVE — Azure Blob" : "REPLAY — Local Data"}
-</button>
+            onClick={() => setDataSource(prev => prev === "replay" ? "azure" : "replay")}
+            style={{
+              padding: "4px 10px", borderRadius: 4, fontSize: 10, fontFamily: mono,
+              background: dataSource === "azure" ? `${C.green}20` : C.surfaceAlt,
+              border: `1px solid ${dataSource === "azure" ? C.green : C.border}`,
+              color: dataSource === "azure" ? C.green : C.textDim,
+              cursor: "pointer"
+            }}
+          >
+            {dataSource === "azure" ? "🟢 LIVE — Azure Blob" : "⚪ REPLAY — Local Data"}
+          </button>
           {/* Playback controls */}
           <div style={{ display:"flex", alignItems:"center", gap:6, padding:"4px 10px", background:C.surfaceAlt, borderRadius:6, border:`1px solid ${C.border}` }}>
             <button onClick={() => setPlaying(!playing)} style={{ background:"none", border:"none", cursor:"pointer", color:C.text, display:"flex", padding:2 }}>
@@ -385,7 +407,7 @@ useEffect(() => {
             <span style={{ fontSize:10, fontFamily:mono, color:C.textMuted }}>Jan {day} {time}</span>
           </div>
           <div style={{ fontSize:10, fontFamily:mono, color:C.textDim, padding:"3px 8px", background:C.surfaceAlt, borderRadius:4 }}>
-            {idx + 1} / {data.length}
+            {dataSource === "azure" ? "LIVE" : `${idx + 1} / ${data.length}`}
           </div>
         </div>
       </div>
