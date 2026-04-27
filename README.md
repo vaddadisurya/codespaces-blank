@@ -10,8 +10,6 @@ An end-to-end IoT Digital Twin for Lawrence Berkeley National Laboratory's Build
 
 This project demonstrates a complete Digital Twin system that ingests 300+ sensor data points from 4 HVAC rooftop units, a hot water pump system, and electrical distribution panels. The data flows through a cloud-native Azure pipeline, is enriched with physics-based synthetic degradation models, and is presented via an interactive dashboard with an AI agent that can answer natural language queries, predict equipment failures, simulate what-if scenarios, and autonomously monitor building health.
 
-Built as a portfolio demonstrator for the SMART Buildings R&D Engineer KTP Associate role (GCU01907) at Glasgow Caledonian University in partnership with Solis Trading Ltd.
-
 ## Architecture
 
 ```
